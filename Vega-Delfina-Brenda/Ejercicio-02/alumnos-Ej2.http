@@ -1,0 +1,104 @@
+@url=http://localhost:3000
+
+### Página principal
+GET {{url}}/
+
+### Listado de alumnos
+GET {{url}}/alumnos
+
+### Crear alumno reprobado 
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Oscar Pérez",
+    "nota1": 4,
+    "nota2": 5,
+    "nota3": 3
+}
+
+### Crear alumno aprobado 
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Ana María",
+    "nota1": 6,
+    "nota2": 7,
+    "nota3": 6
+}
+
+### Crear alumno promocionado
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Carlota",
+    "nota1": 9,
+    "nota2": 8,
+    "nota3": 10
+}
+
+### Ver detalle del alumno con id
+GET {{url}}/alumnos/1
+
+### Ver detalle del alumno con id
+GET {{url}}/alumnos/3
+
+### Modificar notas (Oscar Perez)
+PUT {{url}}/alumnos/1
+Content-Type: application/json
+
+{
+    "nombre": "Oscar Pérez",
+    "nota1": 9,
+    "nota2": 8,
+    "nota3": 9
+}
+
+### Error nombre duplicado
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Oscar Pérez",
+    "nota1": 8,
+    "nota2": 7,
+    "nota3": 9
+}
+
+### Error nombre vacío
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "",
+    "nota1": 8,
+    "nota2": 7,
+    "nota3": 9
+}
+
+### Error nota fuera de rango
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Ana Ruiz",
+    "nota1": 11,
+    "nota2": 7,
+    "nota3": 9
+}
+
+### Error nota no numérica
+POST {{url}}/alumnos
+Content-Type: application/json
+
+{
+    "nombre": "Genaro",
+    "nota1": "abc",
+    "nota2": 7,
+    "nota3": 9
+}
+
+### Error id inválido
+GET {{url}}/alumnos/Aei
