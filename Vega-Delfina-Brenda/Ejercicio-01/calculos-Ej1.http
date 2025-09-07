@@ -1,0 +1,109 @@
+@url=http://localhost:3000
+
+### Pagina principal
+GET {{url}}/
+
+### Listado de rectangulos 
+GET {{url}}/rectangulos
+
+### Crear rectangulo
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+    "base": 4,
+    "altura": 5
+}
+
+### Crear cuadrado
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+    "base": 4,
+    "altura": 4
+}
+
+### Crear cuadrado
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+    "base": 8,
+    "altura": 8
+}
+
+### Crear rectangulo (Mas grande)
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+    "base": 12,
+    "altura": 4
+}
+
+### Obtener rectangulos con id
+GET {{url}}/rectangulos/4
+
+### Obtener rectangulos con id
+GET {{url}}/rectangulos/2
+
+### Obtener rectangulos con id invalido
+GET {{url}}/rectangulos/aei
+
+### Obtener rectangulos con id inexistente
+GET {{url}}/rectangulos/123
+
+
+### Modificar rectangulo (id 3) y convertir a cuadrado
+PUT {{url}}/rectangulos/3
+Content-Type: application/json
+
+{
+    "base": 8,
+    "altura": 8
+}
+
+### Modificar cuadrado (id 2) y convertir a rectangulo
+PUT {{url}}/rectangulos/2
+Content-Type: application/json
+
+{
+    "base": 8,
+    "altura": 6
+}
+
+### DELETE para eliminar rectangulos con id
+DELETE {{url}}/rectangulos/3
+
+### DELETE para eliminar rectangulos con id no existente
+DELETE {{url}}/rectangulos/50
+
+### ERROR para campos faltantes
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+    "base": 5
+}
+
+### ERROR para campos faltantes
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+    "altura": 4
+}
+
+### ERROR para valores negativos
+POST {{url}}/rectangulos
+Content-Type: application/json
+
+{
+    "base": 6,
+    "altura": -4
+}
+
+
+
+
