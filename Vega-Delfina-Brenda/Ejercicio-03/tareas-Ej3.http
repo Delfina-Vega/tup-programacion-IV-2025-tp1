@@ -1,0 +1,74 @@
+@url=http://localhost:3000
+
+### Página principal
+GET {{url}}/
+
+### Listado de tareas 
+GET {{url}}/tareas
+
+### Crear tarea sin completar
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Estudiar para el examen",
+    "completada": false
+}
+
+### Crear tarea sin completar
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Comprar comida",
+    "completada": false
+}
+
+### Crear tarea completada
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Hacer ejercicio",
+    "completada": true
+}
+
+### Filtrar solo tareas completadas
+GET {{url}}/tareas?completada=true
+
+### Filtrar solo tareas sin completar
+GET {{url}}/tareas?completada=false
+
+### Ver detalle de tarea segun el id
+GET {{url}}/tareas/3
+
+### Error nombre duplicado
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Estudiar para el examen",
+    "completada": false
+}
+
+### Error completada no es booleano
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+    "nombre": "Nueva tarea",
+    "completada": "si"
+}
+
+### Error id invalido
+GET {{url}}/tareas/abc
+
+
+### Cambiar estado de una tarea
+PUT {{url}}/tareas/1
+Content-Type: application/json
+
+{
+    "nombre": "Estudiar para el examen",
+    "completada": true
+}
